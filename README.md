@@ -1,13 +1,4 @@
 # terrraform_labs
 Repositorios para guardar os codigos referente a meu aprendizado no terraform
 
-
-Teste de PR git
-
-teste
-
-teste
-tes
-
-
-teste
+Para fazer o PR, time que criar uma nova branch e depois fazer  o PR
