@@ -21,9 +21,17 @@ resource "aws_instance" "app_server" {
   ami           = "ami-007855ac798b5175e"
   instance_type = "t2.micro"
   key_name = "ec2"
-  
+  # Configuração do user_data (Instala coisas dentro da ec2)
+  user_data = <<-EOF
+                 #!/bin/bash
+                 cd /home/ubuntu
+                 echo "<h1> Feito com terraform, Aprende Joao </h1>" >index.html
+                 nohup busybox httpd -f -p 8080 &     
 
+                 EOF  
+
+# Nome da Instancia
   tags = {
-    Name = "Primeira Instancia Aws Labs"
+    Name = "Nova EC2"  
   }
 }
