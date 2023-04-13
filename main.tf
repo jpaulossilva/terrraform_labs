@@ -21,15 +21,12 @@ resource "aws_instance" "app_server" {
   ami           = "ami-007855ac798b5175e"
   instance_type = "t2.micro"
   key_name = "ec2"
-  user_data = <<-EOF
-                #!/bin/bash
-                cd /home/ubuntu
-                echo “<h1>Mensagem a ser mostrada</h1>” > index.html
-                nohup busybox httpd -f -p 8080 &
-                EOF
+  #user_data = "${file("userdata.sh")}"
+  #user_data_replace_on_change = true
+                
 
 # Nome da Instancia
   tags = {
-    Name = "EC2 With USER_DATA"  
+    Name = "EC2_Ansible"  
   }
 }
